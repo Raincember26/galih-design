@@ -1,2 +1,5 @@
-# Dependency folders
+# Tailwind & Node
 node_modules/
+
+# Sistem
+.DS_Store
