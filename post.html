@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galih, UX Designer | {{post.title}} </title>
+    <link href="./dist/output.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="pt-30 bg-gray-100">
+  
+    <!-- Header start here -->
+    <div class="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-gray-100 via-gray-100 to-transparent">
+        <header class="max-w-[660px] mx-auto px-4 py-10 flex justify-between items-center text-sm text-gray-800">
+        
+          <!-- Logo -->
+          <a href="/" class="text-lg font-medium text-gray-800">galih.design</a>
+
+        <!-- Navigation -->
+          <nav class="flex space-x-6">
+            <a href="index.html" class="font-semibold text-gray-400">DESIGN</a>
+            <a href="blog.html" class="font-semibold text-gray-400">THOUGHT</a>
+            </nav>
+        </header>
+    </div>
+    <!-- Header end here -->
+
+    <main class="max-w-[660px] mx-auto px-4 py-12">
+        <article>
+        <h1 id="post-title" class="text-2xl font-bold text-gray-700 mb-4"></h1>
+        <div id="post-content" class="prose prose-lg text-gray-700"></div>
+        </article>
+    </main>
+
+<script>
+    // Ambil slug dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const postSlug = urlParams.get('slug');
+
+    // Fetch post dari Ghost API
+    async function loadPost() {
+      try {
+        const response = await fetch(
+          `http://localhost:2368/ghost/api/content/posts/slug/${postSlug}/?key=f711cf22cdca7eb23f49c4c66c`
+        );
+        const { posts: [post] } = await response.json();
+        
+        // Render konten
+        document.getElementById('post-title').textContent = post.title;
+        document.getElementById('post-content').innerHTML = post.html;
+      } catch (error) {
+        console.error('Error loading post:', error);
+      }
+    }
+
+    loadPost();
+  </script>
+
+  </body>
+</html>
