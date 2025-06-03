@@ -15,18 +15,29 @@ async function loadPosts() {
 
 function renderPosts(posts) {
   const container = document.getElementById("ghost-posts");
-  
-  posts.forEach(post => {
-    const postEl = document.createElement("article");
-    postEl.className = "group transition-all duration-300 hover:translate-y-1";
+  container.className = "space-y-6";
+
+  posts.forEach((post, index) => {
+    // Wrapper article dengan efek hover dan link
+    const postEl = document.createElement("a");
+    postEl.href = `post.html?slug=${post.slug}`;
+    postEl.className = "block group transition-all duration-300 hover:translate-x-2";
     postEl.innerHTML = `
-      <h2 class="text-xl font-semibold text-gray-700 mb-2">${post.title}</h2>
-      <p class="text-gray-700 leading-relaxed">${post.excerpt || "No excerpt"}</p>
-      <a href="post.html?slug=${post.slug}" class="mt-4 inline-block text-gray-400 hover:text-gray-700 transition">
-        Read more ➤
-      </a>
+      <article>
+        <h2 class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-gray-900">${post.title}</h2>
+        <p class="text-gray-400 line-clamp-1 mb-4">${post.excerpt || "No excerpt"}</p>
+      </article>
     `;
-    container.appendChild(postEl);
+
+    // Divider line kecuali untuk post terakhir
+    if (index < posts.length - 1) {
+      const divider = document.createElement("div");
+      divider.className = "border-b border-gray-200";
+      container.appendChild(postEl);
+      container.appendChild(divider);
+    } else {
+      container.appendChild(postEl);
+    }
   });
 }
 
