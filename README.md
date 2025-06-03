@@ -34,12 +34,22 @@ Modern portfolio and blog built with vanilla HTML/CSS/JS and Tailwind CSS, using
     const API_KEY = "YOUR_GHOST_API_KEY"; // ← Paste your key here
 
 ## 📂 Project Structure
+        
+        .
+        ├── assets/       # Static assets
+        ├── css/          # Custom styles
+        ├── dist/         # Compiled CSS (auto-generated)
+        ├── js/           # JavaScript modules
+        ├── index.html    # Homepage
+        ├── blog.html     # Blog listing
+        └── post.html     # Blog post template
 
-    ```bash
-    ├── assets/       # Static assets
-    ├── css/          # Custom styles
-    ├── dist/         # Compiled CSS (auto-generated)
-    ├── js/           # JavaScript modules
-    ├── index.html    # Homepage
-    ├── blog.html     # Blog listing
-    └── post.html     # Blog post template
+
+## 🔧 Deployment
+
+Deploy the entire galih-design folder to:
+
+1. Netlify via GitHub
+
+## 📫 Contact: 
+Say hi to me at: haylogalih@gmail.com
