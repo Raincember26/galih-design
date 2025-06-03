@@ -2,8 +2,6 @@
 
 Modern portfolio and blog built with vanilla HTML/CSS/JS and Tailwind CSS, using Ghost as a headless CMS.
 
-![Project Screenshot](https://i.imgur.com/YOUR_SCREENSHOT.jpg) <!-- Replace with actual image URL -->
-
 ## 🚀 Quick Start
 
 1. **Clone the repo**
