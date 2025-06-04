@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Galih, UX Designer | {{post.title}} </title>
+    <title>Galih, UX Designer</title>
     <link href="./dist/output.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
@@ -28,35 +28,48 @@
     <!-- Content start here -->
     <main class="max-w-[660px] mx-auto px-4 py-12">
         <article>
-        <h1 id="post-title" class="text-2xl font-bold text-gray-700 mb-4"></h1>
-        <div id="post-content" class="prose prose-lg text-gray-700"></div>
+          <!-- Post header -->
+          <header class="mb-12">
+            <h1 id="post-title" class="text-3xl font-bold text-gray-900 mb-4"></h1>
+            <div class="flex items-center text-sm text-gray-500 mb-6">
+              <span id="post-date" class="mr-3"></span>
+              <span id="reading-time"></span>
+            </div>
+            <p id="post-excerpt" class="text-xl text-gray-500 mb-8"></p>
+          </header>
+          
+          <!-- Main content -->
+          <div id="post-content" class="ghost-content"></div>
         </article>
     </main>
     <!-- Content end here -->
 
-<script>
-    // Ambil slug dari URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const postSlug = urlParams.get('slug');
+    <script>
+      // Ambil slug dari URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const postSlug = urlParams.get('slug');
+      const GHOST_URL = "http://localhost:2368"; // Ganti dengan URL Ghost lokal
+      const API_KEY = "f711cf22cdca7eb23f49c4c66c"; // Dapatkan dari Ghost Admin
 
-    // Fetch post dari Ghost API
-    async function loadPost() {
-      try {
-        const response = await fetch(
-          `http://localhost:2368/ghost/api/content/posts/slug/${postSlug}/?key=f711cf22cdca7eb23f49c4c66c`
-        );
-        const { posts: [post] } = await response.json();
+      // Fetch post dari Ghost API
+      async function loadPost() {
+        try {
+          const response = await fetch(
+            `${GHOST_URL}/ghost/api/content/posts/slug/${postSlug}/?key=${API_KEY}`
+          );
+          const { posts: [post] } = await response.json();
+          
+          // Render konten
+          document.getElementById('post-title').textContent = post.title;
+          document.getElementById('post-content').innerHTML = post.html;
         
-        // Render konten
-        document.getElementById('post-title').textContent = post.title;
-        document.getElementById('post-content').innerHTML = post.html;
-      } catch (error) {
-        console.error('Error loading post:', error);
+        } catch (error) {
+          console.error('Error loading post:', error);
+        }
       }
-    }
 
-    loadPost();
-  </script>
+      loadPost();
+    </script>
 
   </body>
 </html>

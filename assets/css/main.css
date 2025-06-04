@@ -6,3 +6,78 @@
     font-family: 'Manrope', sans-serif;
   }
 }
+
+.ghost-content {
+@apply text-gray-700 leading-relaxed;
+font-size: 1.125rem;
+line-height: 1.75;
+}
+      
+.ghost-content h2 {
+@apply text-2xl font-bold text-gray-900 mt-12 mb-6;
+}
+      
+.ghost-content h3 {
+@apply text-xl font-semibold text-gray-800 mt-10 mb-4;
+}
+      
+.ghost-content p {
+@apply mb-6;
+}
+      
+.ghost-content ul,
+.ghost-content ol {
+@apply mb-6 pl-6;
+}
+      
+.ghost-content ul {
+@apply list-disc;
+}
+      
+.ghost-content ol {
+@apply list-decimal;
+}
+      
+.ghost-content li {
+@apply mb-3;
+}
+      
+.ghost-content a {
+@apply text-blue-600 hover:text-blue-800 hover:underline;
+}
+      
+.ghost-content strong {
+@apply font-semibold;
+}
+      
+.ghost-content em {
+@apply italic;
+}
+      
+.ghost-content blockquote {
+@apply border-l-4 border-gray-300 pl-5 italic text-gray-600 my-8;
+}
+      
+.ghost-content code {
+@apply bg-gray-100 rounded px-2 py-1 text-sm font-mono;
+}
+      
+.ghost-content pre {
+@apply bg-gray-800 rounded-lg p-4 overflow-x-auto my-8;
+}
+      
+.ghost-content pre code {
+@apply bg-transparent text-gray-100 p-0;
+}
+      
+.ghost-content img {
+@apply rounded-lg shadow-md my-8 w-full h-auto;
+}
+      
+.ghost-content hr {
+@apply my-8 border-t border-gray-200;
+}
+      
+.ghost-content .emoji {
+@apply inline-block h-5 w-5 align-middle;
+}
