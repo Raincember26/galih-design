@@ -24,7 +24,7 @@ function renderPosts(posts) {
     postEl.className = "block group transition-all duration-300 hover:translate-x-2";
     postEl.innerHTML = `
       <article>
-        <h2 class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-gray-900">${post.title}</h2>
+        <h2 class="text-xl font-semibold text-gray-800 mb-1 group-hover:text-gray-900">${post.title}</h2>
         <p class="text-gray-400 line-clamp-1 mb-4">${post.excerpt || "No excerpt"}</p>
       </article>
     `;

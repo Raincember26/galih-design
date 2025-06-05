@@ -8,17 +8,15 @@
 }
 
 .ghost-content {
-@apply text-gray-700 leading-relaxed;
-font-size: 1.125rem;
-line-height: 1.75;
+@apply text-gray-800 leading-relaxed text-base;
 }
       
 .ghost-content h2 {
-@apply text-2xl font-bold text-gray-900 mt-12 mb-6;
+@apply text-2xl font-bold text-gray-800 mb-3;
 }
       
 .ghost-content h3 {
-@apply text-xl font-semibold text-gray-800 mt-10 mb-4;
+@apply text-lg font-bold text-gray-800 mb-3;
 }
       
 .ghost-content p {
@@ -39,7 +37,7 @@ line-height: 1.75;
 }
       
 .ghost-content li {
-@apply mb-3;
+@apply mb-2;
 }
       
 .ghost-content a {

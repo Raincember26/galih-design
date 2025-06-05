@@ -26,49 +26,116 @@
     <!-- Header end here -->
 
     <!-- Content start here -->
-    <main class="max-w-[660px] mx-auto px-4 py-12">
+    <main class="max-w-[660px] mx-auto px-4 mt-10 mb-30">
         <article>
           <!-- Post header -->
-          <header class="mb-12">
-            <h1 id="post-title" class="text-3xl font-bold text-gray-900 mb-4"></h1>
-            <div class="flex items-center text-sm text-gray-500 mb-6">
-              <span id="post-date" class="mr-3"></span>
+          <header class="mb-10">
+            <div class="flex items-center text-gray-400 mb-2">
+              <span id="post-date" class="mr-2"></span>
+              <span class="mr-2">•</span>
               <span id="reading-time"></span>
             </div>
-            <p id="post-excerpt" class="text-xl text-gray-500 mb-8"></p>
+            <h1 id="post-title" class="text-3xl font-bold text-gray-800"></h1>
           </header>
           
           <!-- Main content -->
           <div id="post-content" class="ghost-content"></div>
+
+          <!-- Post footer -->
+        <footer class="mt-12 pt-8 border-t border-gray-200">
+            <a href="blog.html" class=" text-gray-400 hover:text-gray-800">← Back to all thoughts</a>
+          </div>
+        </footer>
         </article>
     </main>
     <!-- Content end here -->
 
-    <script>
-      // Ambil slug dari URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const postSlug = urlParams.get('slug');
-      const GHOST_URL = "http://localhost:2368"; // Ganti dengan URL Ghost lokal
-      const API_KEY = "f711cf22cdca7eb23f49c4c66c"; // Dapatkan dari Ghost Admin
+     <!-- About start here -->
+    <section class="mb-20">
+      <div class="max-w-[660px] mx-auto px-4">
+        <!-- Title -->
+        <h2 class="text-lg font-bold text-gray-400 mb-6 tracking-wide ">ABOUT ME</h2>
+        
+        <!-- Content -->
+        <div class="space-y-6 text-gray-800">
+          <p class="leading-relaxed">
+            I’m curious in a little bit of everything.
+          </p>
+          
+          <p class="leading-relaxed text-gray-400">
+            I especially love beautiful stories and digital experiences. Other's works have sparked inspirations in me; hope mine could spark something in you.
+          </p>
+          
+          <!-- Social Links -->
+          <div class="pt-4">
+            <a href="mailto:hi@galih.design" target="_blank" class="inline-block w-[40px] text-center mr-10 text-gray-800 hover:text-gray-900 hover:font-bold transition">Email</a>
+            <a href="https://www.linkedin.com/in/galihputra26/" target="_blank" class="inline-block w-[62px] text-center mr-10 text-gray-800 hover:text-gray-900 hover:font-bold transition">LinkedIn</a>
+            <a href="https://medium.com/@galihputra26" target="_blank" class="inline-block w-[60px] text-center mr-10 text-gray-800 hover:text-gray-900 hover:font-bold transition">Medium</a>
+            <a href="https://docs.google.com/document/d/1vhasNT-yY3u61SPTD0HinDPA9PdAYURqAzUzEzsmOyI/edit?usp=sharing" target="_blank" class="inline-block w-[61px] text-center text-gray-800 hover:text-gray-900 hover:font-bold transition">Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About end here -->
 
-      // Fetch post dari Ghost API
+
+    <script>
+      // Format date
+      function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+      }
+      
+      // Process HTML content before rendering
+      function processContent(html) {
+        // Add responsive iframe wrapper
+        html = html.replace(/<iframe/g, '<div class="iframe-container"><iframe');
+        html = html.replace(/<\/iframe>/g, '</iframe></div>');
+        
+        return html;
+      }
+
+      // Load post from Ghost API
       async function loadPost() {
         try {
+          const postSlug = new URLSearchParams(window.location.search).get('slug');
           const response = await fetch(
-            `${GHOST_URL}/ghost/api/content/posts/slug/${postSlug}/?key=${API_KEY}`
+            `http://localhost:2368/ghost/api/content/posts/slug/${postSlug}/?key=f711cf22cdca7eb23f49c4c66c`
           );
           const { posts: [post] } = await response.json();
           
-          // Render konten
+          if (!post) {
+            throw new Error('Post not found');
+          }
+          
+          // Render post content
           document.getElementById('post-title').textContent = post.title;
-          document.getElementById('post-content').innerHTML = post.html;
-        
+          document.getElementById('post-date').textContent = formatDate(post.published_at);
+          document.getElementById('reading-time').textContent = `⁠${post.reading_time} min read`;
+
+          
+          // Process and render HTML content
+          document.getElementById('post-content').innerHTML = processContent(post.html);
+          
+          // Add alt text to images if missing
+          document.querySelectorAll('#post-content img:not([alt])').forEach(img => {
+            img.setAttribute('alt', post.title);
+          });
+          
         } catch (error) {
           console.error('Error loading post:', error);
+          document.getElementById('post-title').textContent = 'Post Not Found';
+          document.getElementById('post-content').innerHTML = `
+            <div class="text-center py-12">
+              <p class="text-gray-500 mb-4">The requested post could not be loaded.</p>
+              <a href="/blog.html" class="text-blue-600 hover:underline">Back to blog</a>
+            </div>
+          `;
         }
       }
 
-      loadPost();
+      // Initialize
+      document.addEventListener('DOMContentLoaded', loadPost);
     </script>
 
   </body>
