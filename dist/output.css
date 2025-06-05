@@ -7,18 +7,17 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-50: oklch(97.1% 0.013 17.38);
     --color-red-100: oklch(93.6% 0.032 17.717);
-    --color-yellow-50: oklch(98.7% 0.026 102.212);
+    --color-red-200: oklch(88.5% 0.062 18.334);
     --color-yellow-100: oklch(97.3% 0.071 103.193);
-    --color-green-50: oklch(98.2% 0.018 155.826);
+    --color-yellow-200: oklch(94.5% 0.129 101.54);
     --color-green-100: oklch(96.2% 0.044 156.743);
-    --color-blue-50: oklch(97% 0.014 254.604);
+    --color-green-200: oklch(92.5% 0.084 155.995);
     --color-blue-100: oklch(93.2% 0.032 255.585);
+    --color-blue-200: oklch(88.2% 0.059 254.128);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-800: oklch(42.4% 0.199 265.638);
-    --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
@@ -330,15 +329,6 @@
   }
   .w-\[62px\] {
     width: 62px;
-  }
-  .w-\[170px\] {
-    width: 170px;
-  }
-  .w-\[180px\] {
-    width: 180px;
-  }
-  .w-\[200px\] {
-    width: 200px;
   }
   .w-full {
     width: 100%;
@@ -699,7 +689,7 @@
 .ghost-content blockquote {
   margin-block: calc(var(--spacing) * 8);
   border-left-style: var(--tw-border-style);
-  border-left-width: 4px;
+  border-left-width: 3px;
   border-color: var(--color-gray-300);
   padding-left: calc(var(--spacing) * 5);
   color: var(--color-gray-600);
@@ -710,37 +700,37 @@
   display: flex;
   align-items: flex-start;
   border-radius: var(--radius-lg);
-  padding: calc(var(--spacing) * 5);
-}
-.ghost-content .kg-callout-card-blue {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-blue-100);
-  background-color: var(--color-blue-50);
+  padding: calc(var(--spacing) * 4);
 }
 .ghost-content .kg-callout-card-gray {
   border-style: var(--tw-border-style);
   border-width: 1px;
   border-color: var(--color-gray-200);
-  background-color: var(--color-gray-50);
+  background-color: var(--color-gray-100);
+}
+.ghost-content .kg-callout-card-blue {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-blue-200);
+  background-color: var(--color-blue-100);
 }
 .ghost-content .kg-callout-card-green {
   border-style: var(--tw-border-style);
   border-width: 1px;
-  border-color: var(--color-green-100);
-  background-color: var(--color-green-50);
+  border-color: var(--color-green-200);
+  background-color: var(--color-green-100);
 }
 .ghost-content .kg-callout-card-yellow {
   border-style: var(--tw-border-style);
   border-width: 1px;
-  border-color: var(--color-yellow-100);
-  background-color: var(--color-yellow-50);
+  border-color: var(--color-yellow-200);
+  background-color: var(--color-yellow-100);
 }
 .ghost-content .kg-callout-card-red {
   border-style: var(--tw-border-style);
   border-width: 1px;
-  border-color: var(--color-red-100);
-  background-color: var(--color-red-50);
+  border-color: var(--color-red-200);
+  background-color: var(--color-red-100);
 }
 .ghost-content .kg-callout-emoji {
   margin-top: calc(var(--spacing) * 1);
