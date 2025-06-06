@@ -30,10 +30,12 @@
         <article>
           <!-- Post header -->
           <header class="mb-10">
-            <div class="flex items-center text-gray-400 mb-2">
+            <div class="flex items-center text-gray-400 mb-4">
               <span id="post-date" class="mr-2"></span>
               <span class="mr-2">•</span>
-              <span id="reading-time"></span>
+              <span id="reading-time" class="mr-2"></span>
+              <span class="mr-2">•</span>
+              <span id="post-tags" class="flex flex-wrap gap-x-2 gap-y-1 text-sm"></span>
             </div>
             <h1 id="post-title" class="text-3xl font-bold text-gray-800"></h1>
           </header>
@@ -43,7 +45,7 @@
 
           <!-- Post footer -->
         <footer class="mt-12 pt-8 border-t border-gray-200">
-            <a href="blog.html" class=" text-gray-400 hover:text-gray-800">← Back to all thoughts</a>
+            <a href="blog.html" class=" text-gray-400 hover:text-gray-800">< Back to all thoughts</a>
           </div>
         </footer>
         </article>
@@ -68,10 +70,10 @@
           
           <!-- Social Links -->
           <div class="pt-4">
-            <a href="mailto:hi@galih.design" target="_blank" class="inline-block w-[40px] text-center mr-10 text-gray-800 hover:text-gray-900 hover:font-bold transition">Email</a>
-            <a href="https://www.linkedin.com/in/galihputra26/" target="_blank" class="inline-block w-[62px] text-center mr-10 text-gray-800 hover:text-gray-900 hover:font-bold transition">LinkedIn</a>
-            <a href="https://medium.com/@galihputra26" target="_blank" class="inline-block w-[60px] text-center mr-10 text-gray-800 hover:text-gray-900 hover:font-bold transition">Medium</a>
-            <a href="https://docs.google.com/document/d/1vhasNT-yY3u61SPTD0HinDPA9PdAYURqAzUzEzsmOyI/edit?usp=sharing" target="_blank" class="inline-block w-[61px] text-center text-gray-800 hover:text-gray-900 hover:font-bold transition">Resume</a>
+            <a href="mailto:hi@galih.design" target="_blank" class="inline-block w-[60px] text-center mr-10 text-gray-800 hover:text-gray-900 hover:font-bold transition">Email ></a>
+            <a href="https://www.linkedin.com/in/galihputra26/" target="_blank" class="inline-block w-[82px] text-center mr-10 text-gray-800 hover:text-gray-900 hover:font-bold transition">LinkedIn ></a>
+            <a href="https://medium.com/@galihputra26" target="_blank" class="inline-block w-[80px] text-center mr-10 text-gray-800 hover:text-gray-900 hover:font-bold transition">Medium ></a>
+            <a href="https://docs.google.com/document/d/1vhasNT-yY3u61SPTD0HinDPA9PdAYURqAzUzEzsmOyI/edit?usp=sharing" target="_blank" class="inline-block w-[81px] text-center text-gray-800 hover:text-gray-900 hover:font-bold transition">Resume ></a>
           </div>
         </div>
       </div>
@@ -100,7 +102,7 @@
         try {
           const postSlug = new URLSearchParams(window.location.search).get('slug');
           const response = await fetch(
-            `http://localhost:2368/ghost/api/content/posts/slug/${postSlug}/?key=f711cf22cdca7eb23f49c4c66c`
+            `http://localhost:2368/ghost/api/content/posts/slug/${postSlug}/?key=f711cf22cdca7eb23f49c4c66c&include=tags`
           );
           const { posts: [post] } = await response.json();
           
@@ -112,6 +114,16 @@
           document.getElementById('post-title').textContent = post.title;
           document.getElementById('post-date').textContent = formatDate(post.published_at);
           document.getElementById('reading-time').textContent = `⁠${post.reading_time} min read`;
+
+          // Render tags
+          const tagsContainer = document.getElementById('post-tags');
+          if (post.tags && post.tags.length > 0) {
+            tagsContainer.innerHTML = post.tags.map(tag => `
+              <span class="bg-gray-200 text-gray-500 px-3 py-1 rounded-full">${tag.name}</span>
+            `).join('');
+          } else {
+            tagsContainer.style.display = 'none';
+          }
 
           
           // Process and render HTML content
