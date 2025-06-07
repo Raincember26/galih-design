@@ -103,7 +103,7 @@
         try {
           const postSlug = new URLSearchParams(window.location.search).get('slug');
           const response = await fetch(
-            `http://localhost:2368/ghost/api/content/posts/slug/${postSlug}/?key=f711cf22cdca7eb23f49c4c66c&include=tags`
+            `https://galih-design-cms.fly.dev//ghost/api/content/posts/slug/${postSlug}/?key=1136fa3e402278881621fedb4f&include=tags`
           );
           const { posts: [post] } = await response.json();
           

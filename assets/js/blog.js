@@ -1,5 +1,5 @@
-const GHOST_URL = "http://localhost:2368"; // Ganti dengan URL Ghost lokal
-const API_KEY = "f711cf22cdca7eb23f49c4c66c"; // Dapatkan dari Ghost Admin
+const GHOST_URL = "https://galih-design-cms.fly.dev"; // Ganti dengan URL Ghost lokal
+const API_KEY = "1136fa3e402278881621fedb4f"; // Dapatkan dari Ghost Admin
 
 async function loadPosts() {
   try {
