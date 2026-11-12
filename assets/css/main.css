@@ -124,27 +124,14 @@
 
 /* Project category tabs (index.html) */
 
-/* Optical alignment: pull the row left by the pill's horizontal padding so the
-   first tab's TEXT lines up with the "PROJECTS" heading and the cards below.
-   The pill box already sat on that line; only the text inside it was inset.
-   The 1px border is deliberately not included, so the active pill's outline
-   stays on screen instead of clipping at the edge on narrow viewports. */
-#project-tabs {
-  margin-left: calc(-1 * var(--spacing) * 4);
-}
-
-/* 693px = the container's max-width (660px) plus its px-4 padding on both sides.
-   Below that the container is full-bleed: there is no outer gutter left to bleed
-   into, so the active pill's outline would sit hard against the viewport edge.
-   Keep the ordinary inset there and let the pills stay inside the page padding. */
-@media (max-width: 693px) {
-  #project-tabs {
-    margin-left: 0;
-  }
-}
-
+/* Every pill carries a visible outline, so the row reads as a set of controls:
+   the active one dark, the rest grey. All pills share the same 1px border, so
+   switching tabs never shifts the row. The row is deliberately NOT pulled left
+   into the gutter: once the outline is visible on every pill, the pill box
+   sitting on the content edge is the correct alignment, and the heading, the
+   pills and the cards below all start on the same line. */
 .tab-btn {
-  @apply border border-transparent rounded-full px-4 py-1.5 text-base font-normal text-gray-400 cursor-pointer transition-colors duration-300;
+  @apply border border-gray-300 rounded-full px-4 py-1.5 text-base font-normal text-gray-400 cursor-pointer transition-colors duration-300;
 }
 .tab-btn:hover {
   @apply text-gray-800;
