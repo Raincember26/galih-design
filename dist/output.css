@@ -851,6 +851,9 @@
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
 }
+#project-tabs {
+  margin-left: calc(-1 * var(--spacing) * 4);
+}
 .tab-btn {
   cursor: pointer;
   border-radius: calc(infinity * 1px);

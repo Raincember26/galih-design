@@ -123,6 +123,16 @@
 }
 
 /* Project category tabs (index.html) */
+
+/* Optical alignment: pull the row left by the pill's horizontal padding so the
+   first tab's TEXT lines up with the "PROJECTS" heading and the cards below.
+   The pill box already sat on that line; only the text inside it was inset.
+   The 1px border is deliberately not included, so the active pill's outline
+   stays on screen instead of clipping at the edge on narrow viewports. */
+#project-tabs {
+  margin-left: calc(-1 * var(--spacing) * 4);
+}
+
 .tab-btn {
   @apply border border-transparent rounded-full px-4 py-1.5 text-base font-normal text-gray-400 cursor-pointer transition-colors duration-300;
 }
