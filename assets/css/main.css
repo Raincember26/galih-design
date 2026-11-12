@@ -133,6 +133,16 @@
   margin-left: calc(-1 * var(--spacing) * 4);
 }
 
+/* 693px = the container's max-width (660px) plus its px-4 padding on both sides.
+   Below that the container is full-bleed: there is no outer gutter left to bleed
+   into, so the active pill's outline would sit hard against the viewport edge.
+   Keep the ordinary inset there and let the pills stay inside the page padding. */
+@media (max-width: 693px) {
+  #project-tabs {
+    margin-left: 0;
+  }
+}
+
 .tab-btn {
   @apply border border-transparent rounded-full px-4 py-1.5 text-base font-normal text-gray-400 cursor-pointer transition-colors duration-300;
 }

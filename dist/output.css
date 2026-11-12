@@ -854,6 +854,11 @@
 #project-tabs {
   margin-left: calc(-1 * var(--spacing) * 4);
 }
+@media (max-width: 693px) {
+  #project-tabs {
+    margin-left: 0;
+  }
+}
 .tab-btn {
   cursor: pointer;
   border-radius: calc(infinity * 1px);
