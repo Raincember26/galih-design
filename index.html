@@ -49,12 +49,20 @@
     <!-- Hero end here -->
 
     <!-- Work start here -->
-    <section class="mb-30">
+    <section id="projects" class="mb-30">
       <div class=" max-w-[660px] mx-auto px-4">
         <h2 class="text-lg font-bold text-gray-400 mb-6 tracking-wide">PROJECTS</h2>
 
+        <!-- Category tabs -->
+        <div id="project-tabs" class="flex flex-wrap gap-3 mb-10" role="tablist" aria-label="Project categories">
+          <button type="button" role="tab" aria-selected="true"  data-filter="featured"       class="tab-btn">Featured</button>
+          <button type="button" role="tab" aria-selected="false" data-filter="product-design" class="tab-btn">Product Design</button>
+          <button type="button" role="tab" aria-selected="false" data-filter="branding"       class="tab-btn">Branding</button>
+          <button type="button" role="tab" aria-selected="false" data-filter="exploration"    class="tab-btn">Exploration</button>
+        </div>
+
         <!-- Work card 1 start here -->
-        <div class="group transition-all duration-300 hover:-translate-y-4 mb-20">
+        <div class="group transition-all duration-300 hover:-translate-y-4 mb-20" data-category="featured">
           <video autoplay loop muted playsinline class="rounded-xl mb-7 w-full h-80 object-cover object-top">
             <source src="assets/videos/design-systems.mp4" type="video/mp4">
           </video>
@@ -97,7 +105,7 @@
         <!-- Work card 1 end here -->
 
         <!-- Work card 2 start here -->
-        <a href="/password.html?next=https://app.chroniclehq.com/share/76260cd3-56aa-4acd-b38a-f320c35703c3/d59d3b22-a79e-4463-b423-6d5fe9e65918/intro" target="_blank">
+        <a href="/password.html?next=https://app.chroniclehq.com/share/76260cd3-56aa-4acd-b38a-f320c35703c3/d59d3b22-a79e-4463-b423-6d5fe9e65918/intro" target="_blank" data-category="featured">
           <div class="group transition-all duration-300 hover:-translate-y-4 mb-20">
             <video autoplay loop muted playsinline class="rounded-xl mb-7 w-full h-80 object-cover object-top">
               <source src="assets/videos/design-product.mp4" type="video/mp4">
@@ -139,7 +147,7 @@
         <!-- Work card 2 end here -->
 
         <!-- Work card 3 start here -->
-        <div class="group transition-all duration-300 hover:-translate-y-4">
+        <div class="group transition-all duration-300 hover:-translate-y-4" data-category="featured">
           <video autoplay loop muted playsinline class="rounded-xl mb-7 w-full h-80 object-cover object-top">
             <source src="assets/videos/design-ops.mp4" type="video/mp4">
           </video>
@@ -179,6 +187,215 @@
         </div>
         <!-- Work card 3 end here -->
 
+        <!-- ============================================================
+             DUMMY CARDS - placeholder content only, safe to delete.
+             Each carries data-category="<tab>" and starts hidden.
+             ============================================================ -->
+
+        <!-- DUMMY: placeholder Product Design project, replace with a real one -->
+        <div class="hidden group transition-all duration-300 hover:-translate-y-4 mb-20" data-category="product-design">
+          <img src="assets/images/pixel-design.jpg" alt="Placeholder cover" class="rounded-xl mb-7 w-full h-80 object-cover object-top"/>
+          <h3 class="text-3xl font-semibold text-gray-800 mb-7">Lorem ipsum product redesign</h3>
+
+          <div class="md:flex md:justify-between md:gap-8">
+            <div class="md:w-6/8">
+              <p class="text-base text-gray-800 leading-relaxed mb-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <ul class="space-y-3 text-base text-gray-800">
+                <li>✦ <span class="font-semibold">Lorem ipsum</span> dolor sit amet.</li>
+                <li>✦ <span class="font-semibold">Consectetur</span> adipiscing elit sed do eiusmod.</li>
+              </ul>
+            </div>
+
+            <div class="md:w-2/8 mt-6 md:mt-0 text-sm text-gray-800">
+              <div class="mb-6">
+                <p class="text-gray-400 font-medium mb-2">Role</p>
+                <p>Lorem Ipsum Designer</p>
+              </div>
+              <div>
+                <p class="text-gray-400 font-medium mb-2">Skills</p>
+                <ul class="list-none space-y-0.5">
+                  <li>Product Strategy</li>
+                  <li>Wireframing</li>
+                  <li>Prototyping</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DUMMY card end -->
+
+        <!-- DUMMY: placeholder Product Design project, replace with a real one -->
+        <div class="hidden group transition-all duration-300 hover:-translate-y-4 mb-20" data-category="product-design">
+          <img src="assets/images/pixel-design.jpg" alt="Placeholder cover" class="rounded-xl mb-7 w-full h-80 object-cover object-top"/>
+          <h3 class="text-3xl font-semibold text-gray-800 mb-7">Dolor sit amet mobile experience</h3>
+
+          <div class="md:flex md:justify-between md:gap-8">
+            <div class="md:w-6/8">
+              <p class="text-base text-gray-800 leading-relaxed mb-6">
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <ul class="space-y-3 text-base text-gray-800">
+                <li>✦ <span class="font-semibold">Lorem ipsum</span> dolor sit amet.</li>
+                <li>✦ <span class="font-semibold">Consectetur</span> adipiscing elit sed do eiusmod.</li>
+              </ul>
+            </div>
+
+            <div class="md:w-2/8 mt-6 md:mt-0 text-sm text-gray-800">
+              <div class="mb-6">
+                <p class="text-gray-400 font-medium mb-2">Role</p>
+                <p>Senior Lorem Designer</p>
+              </div>
+              <div>
+                <p class="text-gray-400 font-medium mb-2">Skills</p>
+                <ul class="list-none space-y-0.5">
+                  <li>User Flows</li>
+                  <li>Interaction Design</li>
+                  <li>Design QA</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DUMMY card end -->
+
+        <!-- DUMMY: placeholder Branding project, replace with a real one -->
+        <div class="hidden group transition-all duration-300 hover:-translate-y-4 mb-20" data-category="branding">
+          <img src="assets/images/pixel-design.jpg" alt="Placeholder cover" class="rounded-xl mb-7 w-full h-80 object-cover object-top"/>
+          <h3 class="text-3xl font-semibold text-gray-800 mb-7">Consectetur brand identity</h3>
+
+          <div class="md:flex md:justify-between md:gap-8">
+            <div class="md:w-6/8">
+              <p class="text-base text-gray-800 leading-relaxed mb-6">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </p>
+              <ul class="space-y-3 text-base text-gray-800">
+                <li>✦ <span class="font-semibold">Lorem ipsum</span> dolor sit amet.</li>
+                <li>✦ <span class="font-semibold">Consectetur</span> adipiscing elit sed do eiusmod.</li>
+              </ul>
+            </div>
+
+            <div class="md:w-2/8 mt-6 md:mt-0 text-sm text-gray-800">
+              <div class="mb-6">
+                <p class="text-gray-400 font-medium mb-2">Role</p>
+                <p>Brand Lorem Designer</p>
+              </div>
+              <div>
+                <p class="text-gray-400 font-medium mb-2">Skills</p>
+                <ul class="list-none space-y-0.5">
+                  <li>Visual Identity</li>
+                  <li>Typography</li>
+                  <li>Brand Guidelines</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DUMMY card end -->
+
+        <!-- DUMMY: placeholder Branding project, replace with a real one -->
+        <div class="hidden group transition-all duration-300 hover:-translate-y-4 mb-20" data-category="branding">
+          <img src="assets/images/pixel-design.jpg" alt="Placeholder cover" class="rounded-xl mb-7 w-full h-80 object-cover object-top"/>
+          <h3 class="text-3xl font-semibold text-gray-800 mb-7">Adipiscing elit visual language</h3>
+
+          <div class="md:flex md:justify-between md:gap-8">
+            <div class="md:w-6/8">
+              <p class="text-base text-gray-800 leading-relaxed mb-6">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <ul class="space-y-3 text-base text-gray-800">
+                <li>✦ <span class="font-semibold">Lorem ipsum</span> dolor sit amet.</li>
+                <li>✦ <span class="font-semibold">Consectetur</span> adipiscing elit sed do eiusmod.</li>
+              </ul>
+            </div>
+
+            <div class="md:w-2/8 mt-6 md:mt-0 text-sm text-gray-800">
+              <div class="mb-6">
+                <p class="text-gray-400 font-medium mb-2">Role</p>
+                <p>Lorem Designer</p>
+              </div>
+              <div>
+                <p class="text-gray-400 font-medium mb-2">Skills</p>
+                <ul class="list-none space-y-0.5">
+                  <li>Visual Systems</li>
+                  <li>Art Direction</li>
+                  <li>Iconography</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DUMMY card end -->
+
+        <!-- DUMMY: placeholder Exploration project, replace with a real one -->
+        <div class="hidden group transition-all duration-300 hover:-translate-y-4 mb-20" data-category="exploration">
+          <img src="assets/images/pixel-design.jpg" alt="Placeholder cover" class="rounded-xl mb-7 w-full h-80 object-cover object-top"/>
+          <h3 class="text-3xl font-semibold text-gray-800 mb-7">Tempor exploration study</h3>
+
+          <div class="md:flex md:justify-between md:gap-8">
+            <div class="md:w-6/8">
+              <p class="text-base text-gray-800 leading-relaxed mb-6">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+              </p>
+              <ul class="space-y-3 text-base text-gray-800">
+                <li>✦ <span class="font-semibold">Lorem ipsum</span> dolor sit amet.</li>
+                <li>✦ <span class="font-semibold">Consectetur</span> adipiscing elit sed do eiusmod.</li>
+              </ul>
+            </div>
+
+            <div class="md:w-2/8 mt-6 md:mt-0 text-sm text-gray-800">
+              <div class="mb-6">
+                <p class="text-gray-400 font-medium mb-2">Role</p>
+                <p>Explorer Lorem</p>
+              </div>
+              <div>
+                <p class="text-gray-400 font-medium mb-2">Skills</p>
+                <ul class="list-none space-y-0.5">
+                  <li>Concepting</li>
+                  <li>Sketching</li>
+                  <li>Motion</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DUMMY card end -->
+
+        <!-- DUMMY: placeholder Exploration project, replace with a real one -->
+        <div class="hidden group transition-all duration-300 hover:-translate-y-4 mb-20" data-category="exploration">
+          <img src="assets/images/pixel-design.jpg" alt="Placeholder cover" class="rounded-xl mb-7 w-full h-80 object-cover object-top"/>
+          <h3 class="text-3xl font-semibold text-gray-800 mb-7">Incididunt concept explorations</h3>
+
+          <div class="md:flex md:justify-between md:gap-8">
+            <div class="md:w-6/8">
+              <p class="text-base text-gray-800 leading-relaxed mb-6">
+                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.
+              </p>
+              <ul class="space-y-3 text-base text-gray-800">
+                <li>✦ <span class="font-semibold">Lorem ipsum</span> dolor sit amet.</li>
+                <li>✦ <span class="font-semibold">Consectetur</span> adipiscing elit sed do eiusmod.</li>
+              </ul>
+            </div>
+
+            <div class="md:w-2/8 mt-6 md:mt-0 text-sm text-gray-800">
+              <div class="mb-6">
+                <p class="text-gray-400 font-medium mb-2">Role</p>
+                <p>Lorem Designer</p>
+              </div>
+              <div>
+                <p class="text-gray-400 font-medium mb-2">Skills</p>
+                <ul class="list-none space-y-0.5">
+                  <li>Exploration</li>
+                  <li>Rapid Prototyping</li>
+                  <li>3D</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DUMMY card end -->
+
       </div>
     </section>
     <!-- Work end here -->
@@ -211,5 +428,6 @@
     </section>
     <!-- About end here -->
 
+    <script src="assets/js/projects.js"></script>
   </body>
 </html>
