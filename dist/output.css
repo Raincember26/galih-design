@@ -708,6 +708,11 @@
       height: calc(100vh - 300px);
     }
   }
+  .md\:min-h-\[480px\] {
+    @media (width >= 48rem) {
+      min-height: 480px;
+    }
+  }
   .md\:w-2\/8 {
     @media (width >= 48rem) {
       width: calc(2/8 * 100%);
