@@ -7,7 +7,8 @@
 
   if (!tabs.length) return;
 
-  function apply(filter) {
+  // animate is false on first paint, so the page does not fade itself in on load.
+  function apply(filter, animate) {
     tabs.forEach(function (tab) {
       var active = tab.getAttribute("data-filter") === filter;
       tab.classList.toggle("is-active", active);
@@ -16,15 +17,18 @@
 
     cards.forEach(function (card) {
       var categories = (card.getAttribute("data-category") || "").split(/\s+/);
-      card.classList.toggle("hidden", categories.indexOf(filter) === -1);
+      var show = categories.indexOf(filter) !== -1;
+      card.classList.toggle("hidden", !show);
+      // .card-in plays the fade-in; defined in assets/css/main.css
+      card.classList.toggle("card-in", show && animate);
     });
   }
 
   tabs.forEach(function (tab) {
     tab.addEventListener("click", function () {
-      apply(tab.getAttribute("data-filter"));
+      apply(tab.getAttribute("data-filter"), true);
     });
   });
 
-  apply("featured");
+  apply("featured", false);
 })();
