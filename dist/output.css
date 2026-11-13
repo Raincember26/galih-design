@@ -709,9 +709,9 @@
       display: flex;
     }
   }
-  .md\:h-\[500px\] {
+  .md\:h-\[calc\(100vh_-_236px\)\] {
     @media (width >= 48rem) {
-      height: 500px;
+      height: calc(100vh - 236px);
     }
   }
   .md\:w-2\/8 {
