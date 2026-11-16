@@ -44,8 +44,6 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
     --font-weight-normal: 400;
@@ -334,6 +332,9 @@
   .inline-block {
     display: inline-block;
   }
+  .aspect-\[4\/3\] {
+    aspect-ratio: 4/3;
+  }
   .h-1 {
     height: calc(var(--spacing) * 1);
   }
@@ -363,9 +364,6 @@
   }
   .max-w-\[1200px\] {
     max-width: 1200px;
-  }
-  .max-w-\[1280px\] {
-    max-width: 1280px;
   }
   .max-w-md {
     max-width: var(--container-md);
@@ -696,6 +694,11 @@
   .md\:flex {
     @media (width >= 48rem) {
       display: flex;
+    }
+  }
+  .md\:aspect-\[16\/9\] {
+    @media (width >= 48rem) {
+      aspect-ratio: 16/9;
     }
   }
   .md\:w-2\/8 {
